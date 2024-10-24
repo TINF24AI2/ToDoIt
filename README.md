@@ -3,12 +3,12 @@ Projektarbeit von Gruppe 1 im Modul "Projektmanagement"
 
 
 ## Mitglieder und Rollen
-Alina: Developer
+Alina: Developer (Backend)
 
 Naomi: Scrum Master
 
 Nicole Käfer: Product Owner
 
-Dominik: Developer
+Dominik: Developer (Frontend und Design)
 
-Djordje Manic: Developer
+Djordje Manic: Developer (Backend)
