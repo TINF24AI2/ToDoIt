@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ToDoIt</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="resources/img/LogoSmall.png" type="image/x-icon">
+    <script src="resources/js/backend_connection.js"></script>
+    <script src="resources/js/hash.js"></script>
+    <script src="resources/js/cookies.js"></script>
+    <link rel="stylesheet" href="resources/stylesheets/standard_stylesheet.css">
+    <link rel="stylesheet" href="resources/stylesheets/index.css">
+</head>
+
+
+<body>
+    <!--Header-->
+    <header>
+        <img class="header_img" src="resources/img/LogoSmall.png" alt="ToDoIt_logo">
+        <h1 class="header_titel">ToDoIt</h1>
+    </header>
+    <!--Content-->
+
+    <!--Sign Up Page-->
+    <div class="form_div">
+        <h2>Sign Up</h2>
+        <h3>Join the Productivity Revolution!</h3>
+        <form id="signupform" action="#" method="post"> <!--logic-->
+            <label for="signup_username">Enter a Username:</label>
+            <input type="text" id="signup_username" name="signup_username" placeholder="Username" required>
+            <label for="signup_password">Create a Password:</label>
+            <input type="password" id="signup_password" name="signup_password" minlength="4" maxlength="8" placeholder="Password" required>
+            <input type="checkbox" required>Accept our<a href="ref/privacy_policy-terms_of_service.html"> Privacy Policy & Terms of Service</a>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p>Already have an account? <a href="">Login</a></p> <!--logic-->
+    </div>
+
+    <!--Login Page-->
+    <div class="form_div">
+        <h2>Login</h2>
+        <h3>Welcome Back</h3>
+        <form id="loginform" action="#" method="post"> <!--logic-->
+            <label for="login_username">Enter Username:</label>
+            <input type="text" id="login_username" name="username" placeholder="Username" required>
+            <label for="login_password">Enter Password:</label>
+            <input type="password" id="login_password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? <a href="#">Sign Up</a></p> <!--logic-->
+    </div>
+
+    <!--Cookie PopUp-->
+    <div>
+        <p>
+            Our website uses cookies to provide your browsing experience and
+            relevant information. Before continuing to use our website, you agree &
+            accept of our <a href="ref/privacy_policy-terms_of_service.html">Privacy Policy and Terms of Service:</a>
+        </p>
+        <button id="acceptCookie">Accept</button> <!--logic-->
+    </div>
+
+    <!--Footer-->
+    <footer>
+        <p>2024 ToDoIt</p>
+        <p><a href="https://github.com/TINF24AI2/ToDoIt">GitHub</a> <a
+                href="ref/privacy_policy-terms_of_service.html">Privacy Policy & Terms of Service</a></p>
+        <p><a href="#">Cookie Preferences</a></p> <!--logic-->
+    </footer>
+</body>
+
+</html>

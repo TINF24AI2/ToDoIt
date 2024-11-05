@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+:root {
+    --primary_color: #3D5A80;
+    --secondary_color: #98C1D9;
+    --forground_color: #293241;
+    --background_color: #121720;
+    --warning_color: #EE6C4D;
+    --text_color: white;
+    --font_family: "Open Sans", sans-serif;
+    --accent_font_family: "Fugaz One", sans-serif;
+}
+
+
+
+
+
+*{
+    font-family: var(--font_family);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--secondary_color);
+    text-decoration: none;
+  }
