@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 :root {
     --primary_color: #3D5A80;
+    --primary_color_hover: #46668f;
     --secondary_color: #98C1D9;
+    --secondary_color_hover: #a4cfe7;
     --forground_color: #293241;
     --background_color: #121720;
     --warning_color: #EE6C4D;
-    --text_color: white;
+    --boder_color: #566173;
+    --text_color: rgba(238, 238, 238, 1);
     --font_family: "Open Sans", sans-serif;
     --accent_font_family: "Fugaz One", sans-serif;
 }
@@ -16,6 +20,7 @@
 
 *{
     font-family: var(--font_family);
+    cursor: default;
 }
 
 body{
@@ -26,4 +31,9 @@ body{
 a {
     color: var(--secondary_color);
     text-decoration: none;
-  }
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--secondary_color_hover);
+}

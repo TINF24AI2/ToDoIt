@@ -5,6 +5,10 @@ body {
     background-repeat: no-repeat; 
 }
 
+.outerdiv{
+    min-height: 100vh;
+}
+
 header{
     background-color: transparent;
     text-align: left;
@@ -17,6 +21,13 @@ header{
 .header_titel{
     font-family: var(--accent_font_family);
     color: var(--primary_color);
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+.header_titel_2{
+    font-family: var(--accent_font_family);
+    color: var(--secondary_color);
     font-size: 2em;
     margin: 0;
     padding: 0;
@@ -34,26 +45,29 @@ header{
     align-items: center;
     justify-content: center;
     margin-top: 80px;
+    margin-bottom: 80px;
     background-color: var(--forground_color);
     color: var(--text_color);
-    padding: 20px;
+    padding: 45px;
     width: 600px;
-    border-radius: 20px;
+    border-radius: 40px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 350;
 }
 
 .form_div h2{
     font-family: var(--accent_font_family);
-    font-size: 2.5em;
+    font-size: 3em;
     margin: 0;
     padding: 0;
     font-weight: normal;
 }
 
 .form_div h3{
-    font-weight: normal;
-    margin-top: 5px;
+    font-weight: 350;
+    font-size: 1.5em;
+    margin-top: 10px;
 }
 
 .form_div form{
@@ -66,13 +80,75 @@ header{
 
 .form_div input[type="text"], input[type="password"]{
     margin-top: 10px;
-    padding: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
     border-radius: 5px;
-    border-width: .02em;
-    border-color: var(--secondary_color);
+    border-width: .1em;
+    border-color: var(--boder_color);
     border-style: solid;
     background-color: transparent;
     color: var(--text_color);
-    font-family: var(--accent_font_family);
-    font-size: 1.2em;
+    font-size: 1em;
+    font-weight: 300;
+    cursor: text;
 }
+
+:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: var(--text_color);
+}
+
+.form_div input[type="submit"]{
+    margin-top: 10px;
+    padding: 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary_color);
+    color: var(--text_color);
+    font-size: 1em;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.form_div input[type="submit"]:hover{
+    background-color: var(--primary_color_hover);
+}
+
+
+.form_checkbox{
+    margin-bottom: 10px;
+}
+
+.form_div input[type="checkbox"]{
+    cursor: pointer;
+    background-color: var(--forground_color);
+    accent-color: var(--primary_color);
+    width: 20px;
+}
+
+
+footer{
+    background-color: var(--background_color);
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: var(--text_color);
+    font-weight: 300;
+    font-size: 1em;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer a{
+    color: var(--text_color);
+}
+
+.footer_github_link{
+    margin-right: 40px;
+}
+
