@@ -70,3 +70,17 @@ footer a{
     margin-right: 40px;
 }
 
+@media screen and (max-width: 600px){
+
+    footer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
