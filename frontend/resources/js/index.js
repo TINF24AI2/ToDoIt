@@ -57,7 +57,7 @@ function signup() {
     // Reset the labels to their original state
     username_label.style.color = 'var(--text_color)';
     password_label.style.color = 'var(--text_color)';
-    checkbox_div.innerHTML = '<input id="checkbox" type="checkbox">Accept our<a href="ref/privacy_policy-terms_of_service.html"> Privacy Policy & Terms of Service</a>';
+    checkbox_div.innerHTML = '<input id="checkbox" type="checkbox">Accept our<a href="ref/privacy_policy-terms_of_service.html"> Privacy Policy & Terms of Service and Cookies</a>';
     username_label.innerHTML = 'Enter a Username';
     password_label.innerHTML = 'Create a Password';
 
@@ -73,17 +73,22 @@ function signup() {
         password_label.style.color = 'var(--warning_color)';
         password_label.innerHTML += ' - Password is required';
         flag = 1;
-    }
-    if (checkbox == false) {
-        checkbox_div.innerHTML = '<input id="checkbox" type="checkbox" style="color: var(--warning_color);" > You have to accept our<a href="ref/privacy_policy-terms_of_service.html"> Privacy Policy & Terms of Service</a>';
+    }else if(password.length < 8){
+        password_label.style.color = 'var(--warning_color)';
+        password_label.innerHTML += ' - Password must be at least 8 characters';
         flag = 1;
     }
-    
-    if(flag = 1){
+    if (checkbox == false) {
+        checkbox_div.innerHTML = '<input id="checkbox" type="checkbox" style="color: var(--warning_color);" > You have to accept our<a href="ref/privacy_policy-terms_of_service.html"> Privacy Policy & Terms of Service and Cookies</a>';
+        flag = 1;
+    } 
+    if(flag == 1){
         return;
     }
     
 
+    // temporery redirect to home page
+    window.location.href = 'app/home.html';
     
 }
 

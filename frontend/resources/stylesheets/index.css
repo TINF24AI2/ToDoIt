@@ -157,10 +157,6 @@ footer a{
         background-image: none;
         background-color: var(--forground_color);
     }
-
-    header{
-        display: flex;
-    }
     
     .outerdiv{
         min-height: 90vh;
