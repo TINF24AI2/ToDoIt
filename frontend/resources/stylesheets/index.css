@@ -3,13 +3,14 @@ body {
     background-size: cover;
     background-position: top center; 
     background-repeat: no-repeat; 
+    background-color: var(--background_color);
 }
 
 .outerdiv{
     min-height: 100vh;
 }
 
-header{
+header{ 
     background-color: transparent;
     text-align: left;
     display: flex;
