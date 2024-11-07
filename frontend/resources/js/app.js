@@ -1,3 +1,10 @@
+//Check if the user still logged in
+function checkSession() {
+    if (getCookie("session") = null) {
+       window.location.href = 'index.html';
+   }
+}
+
 // Search Funktion
 /* Event listener */
 document.addEventListener('DOMContentLoaded', function() {

@@ -5,12 +5,12 @@
 .light_theme {
     --primary_color: #9ebee2; /* Softer blue for primary elements */
     --primary_color_hover: #b3ceec; /* Slightly darker blue for hover effect */
-    --secondary_color: #7BAFD4; /* Medium-light blue for secondary elements */
+    --secondary_color: #a6cae4; /* Medium-light blue for secondary elements */
     --secondary_color_hover: #8FBFE0; /* Slightly darker for hover effect */
-    --foreground_color: #FAFBFC; /* Very light gray for foreground areas */
+    --foreground_color: #ecf6fc; /* Very light gray for foreground areas */
     --background_color: #FFFFFF; /* White background */
     --warning_color: #E76F51; /* Muted warm red for warnings */
-    --border_color: #E0E4E9; /* Very light gray for borders */
+    --border_color: #969ca89f; /* Very light gray for borders */
     --text_color: rgba(0, 0, 0, 0.87); /* Dark text for readability */
     --font_family: "Open Sans", sans-serif;
     --accent_font_family: "Fugaz One", sans-serif;

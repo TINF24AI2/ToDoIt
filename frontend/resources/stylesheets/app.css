@@ -49,16 +49,6 @@ header{
     outline: none;
 }
 
-.header_search_button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--primary_color);
-    color: var(--background_color);
-    cursor: pointer;
-}
-
 .header_icon{
     padding-left: 30px;
     display: flex;
@@ -69,6 +59,10 @@ header{
     fill: var(--secondary_color);
 }
 
+svg{
+    cursor: pointer;
+}
+
 hr {
     display: block;
     height: 1px;
@@ -76,6 +70,56 @@ hr {
     border-top: 1px solid var(--border_color);
     margin: 0;
     padding: 0;
+}
+
+.popup{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 50%;
+    right: 50%;
+    background-color: var(--foreground_color);
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.popup_close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.popup_close path {
+    fill: var(--text_color);
+}
+
+
+.profile_popup_username{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; 
+    color: var(--text_color);
+    margin: 10px;
+    margin-top: 0;
+    text-align: left;
+}
+
+.profile_popup_signout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    color: var(--warning_color);
+    margin: 10px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.profile_popup_signout svg path {
+    fill: var(--warning_color);
 }
 
 @media screen and (max-width: 600px){

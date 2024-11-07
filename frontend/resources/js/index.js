@@ -7,9 +7,9 @@
 
 // Check if the user is already logged in
 function checkSession() {
-     if (getCookie("session") != null) {
-        window.location.href = 'app.html';
-    }
+    if (getCookie("session") != null) {
+       window.location.href = 'app.html';
+   }
 }
 
 // Function to login
@@ -41,7 +41,6 @@ function login() {
     if(flag = 1){
         return;
     }
-    
 
     
 }
