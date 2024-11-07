@@ -19,6 +19,7 @@
         <header>
             <img class="header_img" src="resources/img/LogoSmall.png" alt="ToDoIt_logo">
             <h1 class="header_titel">ToDo</h1><h1 class="header_titel_2">It</h1>
+            <button onclick="temForwarding()"> temFro </button>
             <div class="header_theme_toggler" onclick="toggleTheme()">
                 <svg width="2rem" height="2rem" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                     <title>ThemeToggle</title>
@@ -42,7 +43,7 @@
         <div id="signup_div" class="form_div" style="display: flex">
             <h2>Sign Up</h2>
             <h3>Join the Productivity Revolution!</h3>
-            <form id="signupform" action="javascript: signup()" method="post"> <!--logic-->
+            <form id="signupform" action="javascript: signup()" method="post">
                 <label id="signup_username_label" for="signup_username">Enter a Username</label>
                 <input type="text" id="signup_username" name="signup_username" placeholder="Username">
                 <label id="signup_password_label" for="signup_password">Create a Password</label>
@@ -58,7 +59,7 @@
         <div id="login_div" class="form_div hidden" style="display: none">
             <h2>Login</h2>
             <h3>Welcome Back</h3>
-            <form id="loginform" action="javascript: login()" method="post"> <!--logic-->
+            <form id="loginform" action="javascript: login()" method="post"> 
                 <label id="login_username_label" for="login_username">Enter Username</label>
                 <input type="text" id="login_username" name="username" placeholder="Username" >
                 <label id="login_password_label" for="login_password">Enter Password</label>

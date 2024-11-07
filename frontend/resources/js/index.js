@@ -1,12 +1,16 @@
 // Description: This file contains the javascript code for the index page.
 
-//Todo1: Add code to handle the api call 
+//Task: Add code to handle the api call 
         //and send error message to the user if the username or password is incorrect
         //and send the user to the home page if the username and password is correct
-//Todo2: Add code to check if the user is already logged in
 
 
 // Check if the user is already logged in
+function checkSession() {
+     if (getCookie("session") != null) {
+        window.location.href = 'app.html';
+    }
+}
 
 // Function to login
 function login() {
@@ -87,8 +91,6 @@ function signup() {
     }
     
 
-    // temporery redirect to home page
-    window.location.href = 'app/home.html';
     
 }
 
@@ -110,8 +112,9 @@ function toggleSignupLogin() {
 }
 
 
-
-
+function temForwarding(){
+    window.location.href = 'app.html';
+}
 
 
 
