@@ -7,17 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="resources/img/LogoSmall.png" type="image/x-icon">
     <script src="resources/js/index.js"></script>
+    <script src="resources/js/standard.js"></script>
     <link rel="stylesheet" href="resources/stylesheets/standard_stylesheet.css">
     <link rel="stylesheet" href="resources/stylesheets/index.css">
 </head>
 
 
-<body>
+<body onload="loadThemePreference()">
     <div class="outerdiv">
         <!--Header-->
         <header>
             <img class="header_img" src="resources/img/LogoSmall.png" alt="ToDoIt_logo">
             <h1 class="header_titel">ToDo</h1><h1 class="header_titel_2">It</h1>
+            <div class="header_theme_toggler" onclick="toggleTheme()">
+                <svg width="2rem" height="2rem" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <title>ThemeToggle</title>
+                    <g id="Layer_2" data-name="Layer 2">
+                        <g id="Icons">
+                            <g>
+                                <rect width="48" height="48" fill="none"/>
+                                <g>
+                                    <path d="M14,24A10,10,0,0,0,24,34V14A10,10,0,0,0,14,24Z"/>
+                                    <path d="M24,2A22,22,0,1,0,46,24,21.9,21.9,0,0,0,24,2ZM6,24A18.1,18.1,0,0,1,24,6v8a10,10,0,0,1,0,20v8A18.1,18.1,0,0,1,6,24Z"/>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
         </header>
         <!--Content-->
 
@@ -34,11 +51,11 @@
                         href="ref/privacy_policy-terms_of_service.html"> Privacy Policy & Terms of Service and Cookies</a></div>
                 <input type="submit" value="Sign Up">
             </form>
-            <p>Already have an account? <a  onclick="switch_signup_login_form()">Login</a></p>
+            <p>Already have an account? <a  onclick="toggleSignupLogin()">Login</a></p>
         </div>
 
         <!--Login Page-->
-        <div id="login_div" class="form_div" style="display: none">
+        <div id="login_div" class="form_div hidden" style="display: none">
             <h2>Login</h2>
             <h3>Welcome Back</h3>
             <form id="loginform" action="javascript: login()" method="post"> <!--logic-->
@@ -48,7 +65,7 @@
                 <input type="password" id="login_password" name="password" placeholder="Password" >
                 <input type="submit" value="Login">
             </form>
-            <p>Don't have an account? <a onclick="switch_signup_login_form()">Sign Up</a></p> 
+            <p>Don't have an account? <a onclick="toggleSignupLogin()">Sign Up</a></p> 
         </div>
     </div>
 

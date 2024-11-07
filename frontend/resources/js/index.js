@@ -95,13 +95,17 @@ function signup() {
 
 
 // Function to switch between login and signup form
-function switch_signup_login_form() {
-    if (document.getElementById('signup_div').style.display == 'flex') {
-        document.getElementById('signup_div').style.display = 'none';
-        document.getElementById('login_div').style.display = 'flex';
+function toggleSignupLogin() {
+    var signupDiv = document.getElementById('signup_div');
+    var loginDiv = document.getElementById('login_div');
+    signupDiv.classList.toggle('hidden');
+    loginDiv.classList.toggle('hidden');
+    if (signupDiv.classList.contains('hidden')) {
+        signupDiv.style.display = 'none';
+        loginDiv.style.display = 'flex';
     } else {
-        document.getElementById('signup_div').style.display = 'flex';
-        document.getElementById('login_div').style.display = 'none';
+        signupDiv.style.display = 'flex';
+        loginDiv.style.display = 'none';
     }
 }
 

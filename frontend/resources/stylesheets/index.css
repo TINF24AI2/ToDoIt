@@ -40,6 +40,15 @@ header{
     margin-right: 10px;
 }
 
+.header_theme_toggler{
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.header_theme_toggler svg path {
+    fill: var(--text_color);
+}
+
 .form_div{
     display: flex;
     flex-direction: column;
@@ -47,7 +56,7 @@ header{
     justify-content: center;
     margin-top: 80px;
     margin-bottom: 80px;
-    background-color: var(--forground_color);
+    background-color: var(--foreground_color);
     color: var(--text_color);
     padding: 45px;
     width: 600px;
@@ -154,9 +163,11 @@ footer a{
 }
 
 @media screen and (max-width: 600px){
+    
+    
     body {
         background-image: none;
-        background-color: var(--forground_color);
+        background-color: var(--foreground_color);
     }
     
     .outerdiv{
@@ -164,9 +175,20 @@ footer a{
     }
 
     .form_div{
+        border-radius: 0px;
         padding: 0px;
         margin-top: 10px;
         width: 100vw;
+    }
+
+    .form_div input{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .form_div label{
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     footer{
@@ -179,5 +201,12 @@ footer a{
         flex-direction: column;
         align-items: center;
     }
+
+    .footer_github_link{
+        margin-right: 0px;
+    }
     
+    .form_checkbox{
+        font-size: small;
+    }
 }
