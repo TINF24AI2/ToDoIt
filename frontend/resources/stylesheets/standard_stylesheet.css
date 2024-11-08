@@ -8,6 +8,7 @@
     --secondary_color: #a6cae4; /* Medium-light blue for secondary elements */
     --secondary_color_hover: #8FBFE0; /* Slightly darker for hover effect */
     --foreground_color: #ecf6fc; /* Very light gray for foreground areas */
+    --foreground_color_hover: #daeaf5; /* Slightly darker than background */
     --background_color: #FFFFFF; /* White background */
     --warning_color: #E76F51; /* Muted warm red for warnings */
     --border_color: #969ca89f; /* Very light gray for borders */
@@ -22,6 +23,7 @@
     --secondary_color: #98C1D9;
     --secondary_color_hover: #a4cfe7;
     --foreground_color: #293241;
+    --foreground_color_hover: #313b4d; /* Slightly lighter than background */
     --background_color: #121720;
     --warning_color: #EE6C4D;
     --border_color: #566173;

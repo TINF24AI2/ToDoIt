@@ -1,10 +1,5 @@
 // Description: This file contains the javascript code for the index page.
 
-//Task: Add code to handle the api call 
-        //and send error message to the user if the username or password is incorrect
-        //and send the user to the home page if the username and password is correct
-
-
 // Check if the user is already logged in
 function checkSession() {
     if (getCookie("session") != null) {
@@ -38,11 +33,26 @@ function login() {
         flag = 1;
     }
     
-    if(flag = 1){
+    if(flag == 1){
         return;
     }
 
-    
+    var loginAnswer = loginBack(username, password);
+    console.log("loginBack returned:", loginAnswer);
+    if(loginAnswer == 0){
+        window.location.href = 'app.html';
+    }
+    else if(loginAnswer == 1){
+        password_label.style.color = 'var(--warning_color)';
+        password_label.innerHTML += ' - Wrong Password';
+    }
+    else if(loginAnswer == 2){
+        username_label.style.color = 'var(--warning_color)';
+        username_label.innerHTML += ' - Wrong Username';
+    }
+    else{
+        alert('An error occured on Login');
+    }
 }
 
 
@@ -90,6 +100,14 @@ function signup() {
     }
     
 
+    var signupAnswer = signupBack(username, password);
+    if(signupAnswer == 0){
+        window.location.href = 'app.html';
+    }
+    else{
+        alert('An error occured on Signup');
+    }
+
     
 }
 
@@ -114,32 +132,3 @@ function toggleSignupLogin() {
 function temForwarding(){
     window.location.href = 'app.html';
 }
-
-
-
-
-
-// Api call to signup
-    /*
-    var data = {
-        username: username,
-        password: password
-    };
-    fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(response => {
-        if (response.status == 200) {
-            response.json().then(data => {
-                window.location.href = '/home';
-            });
-        } else {
-            response.json().then(data => {
-                alert(data.message);
-            });
-        }
-    });
-    */

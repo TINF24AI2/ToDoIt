@@ -1,3 +1,7 @@
+body{
+    overflow-y: hidden;
+}
+
 header{ 
     background-color: transparent;
     text-align: left;
@@ -74,14 +78,14 @@ hr {
 
 .popup{
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     top: 50%;
     right: 50%;
     background-color: var(--foreground_color);
     border-radius: 15px;
-    padding: 30px;
+    padding-top: 10px;
 }
 
 .popup_close{
@@ -95,6 +99,10 @@ hr {
     fill: var(--text_color);
 }
 
+#profile_popup{
+    top: 60px;
+    right: 20px;
+}
 
 .profile_popup_username{
     display: flex;
@@ -102,8 +110,9 @@ hr {
     align-items: center;
     justify-content: flex-start; 
     color: var(--text_color);
-    margin: 10px;
-    margin-top: 0;
+    margin: 40px;
+    margin-bottom: 20px;
+    margin-top: 20px;
     text-align: left;
 }
 
@@ -113,13 +122,141 @@ hr {
     align-items: center;
     justify-content: flex-start;
     color: var(--warning_color);
-    margin: 10px;
-    margin-bottom: 0;
+    margin: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: left;
+    cursor: pointer;
 }
 
 .profile_popup_signout svg path {
     fill: var(--warning_color);
+}
+.menu{
+    padding: 20px;
+    width: 300px;
+    border-right: 1px solid var(--border_color); 
+    height: calc(100vh - 100px);
+    position: relative; /* Add this line */
+}
+
+
+
+.menu h2{
+    color: var(--text_color);
+    font-family: var(--accent_font_family);
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu_scheduled{
+    padding-bottom: 20px;
+}
+
+.menu_scheduled_buttons_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.menu_scheduled_buttons_div :hover{
+    background-color: var(--foreground_color_hover);
+}
+
+.menu_scheduled_buttons{
+    background-color: var(--foreground_color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+.menu_scheduled_buttons h3{
+    margin: 0;
+    cursor: pointer;
+}
+
+.menu_scheduled_buttons svg path{
+    fill: var(--text_color);
+    cursor: pointer;
+    
+}
+
+.menu_scheduled_icons{
+    padding: 10px;
+    fill: var(--text_color);
+    cursor: pointer;
+}
+
+.menu_list_menu{
+    margin-top: 10px;
+    padding-bottom: 20px;
+    overflow-y: auto; /* Change to auto */
+    max-height: calc(100vh - 400px); /* Set the maximum height dynamically */
+}
+
+
+.menu_list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    background-color: var(--foreground_color);
+    border-radius: 15px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.menu_list h3{
+    margin: 0;
+    padding: 0;
+    color: var(--text_color);
+    font-size: 1.2rem;
+}
+.menu_list:hover { 
+    background-color: var(--foreground_color_hover);
+}
+.menu_list svg {
+    margin-right: 10px;
+    fill: var(--text_color);
+}
+
+.addList{
+    position: absolute; /* Add this line */
+    bottom: 20px;
+    right: 20px;
+}
+
+.addList{
+    color: var(--secondary_color);
+}
+
+/* Custom scrollbar styles */
+.menu_list_menu::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.menu_list_menu::-webkit-scrollbar-track {
+    background: var(--background_color); /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+.menu_list_menu::-webkit-scrollbar-thumb {
+    background: var(--primary_color); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+.menu_list_menu::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary_color); /* Color of the scrollbar thumb on hover */
 }
 
 @media screen and (max-width: 600px){
