@@ -264,4 +264,11 @@ hr {
     .header_search{
         display: none;
     }
+
+    .menu{
+        width: 100vw;
+        border: none;
+        
+    }
+
 }
