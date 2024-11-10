@@ -128,16 +128,41 @@ header{
 
 
 .form_checkbox{
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
 .form_div input[type="checkbox"]{
     cursor: pointer;
-    background-color: var(--forground_color);
-    accent-color: var(--primary_color);
+    background-color: var(--foreground_color);
+    border: 1.5px solid var(--text_color);
+    border-radius: 5px;
     width: 20px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: 10px;
 }
 
+.form_div input[type="checkbox"]:checked {
+    background-color: var(--foreground_color);
+    position: relative;
+}
+
+.form_div input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--text_color);
+    border: 2px solid var(--foreground_color);
+    border-radius: 3px;
+    transform: translate(-50%, -50%);
+}
 
 footer{
     background-color: var(--background_color);

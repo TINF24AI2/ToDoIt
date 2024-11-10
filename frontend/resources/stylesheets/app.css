@@ -231,7 +231,7 @@ body.popup-open .blur-background {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between; /* Change to space-between */
     padding: 10px;
     background-color: var(--foreground_color);
     border-radius: 15px;
@@ -239,18 +239,59 @@ body.popup-open .blur-background {
     margin-bottom: 10px;
     margin-right: 10px;
 }
+
+.menu_list_left {
+    display: flex;
+    align-items: center;
+}
+
+.menu_list_left input#newListInput {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    color: var(--text_color);
+    margin-left: 10px;
+    width: 100%;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.menu_list_left input#newListInput:focus {
+    outline: none;
+}
+
+.menu_list .delete_icon {
+    display: none; 
+    fill: none;
+}
+
+.menu_list .delete_icon path {
+    stroke: var(--warning_color); /* Change the color here */
+}
+
+
+.menu_list:hover .delete_icon {
+    display: block; 
+}
+
 .menu_list h3{
     margin: 0;
     padding: 0;
     color: var(--text_color);
     font-size: 1.2rem;
+    margin-left: 10px; /* Add margin to separate text from icon */
 }
 .menu_list:hover { 
     background-color: var(--foreground_color_hover);
 }
 .menu_list svg {
-    margin-right: 10px;
     fill: var(--text_color);
+}
+
+.menu_list_left svg {
+    width: 2rem;
+    height: 2rem;
 }
 
 .addList{
@@ -285,6 +326,13 @@ body.popup-open .blur-background {
     max-height: calc(100vh - 220px); /* Set the maximum height dynamically */
 }
 
+.todo_date_text{
+    color: var(--border_color);
+    font-size: .8rem;
+    margin: 0;
+    padding: 0;
+}
+
 /* Custom scrollbar styles */
 .todos_div::-webkit-scrollbar {
     width: 8px; /* Width of the scrollbar */
@@ -304,28 +352,102 @@ body.popup-open .blur-background {
     background: var(--secondary_color); /* Color of the scrollbar thumb on hover */
 }
 
-.emptyList_div{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 20px;
-}
-
-.emptyList{
-    color: var(--foreground_color);
-    font-family: var(--accent_font_family);
-    font-size: 1.5rem;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    top: 30vh;
-}
 
 .todo_add{
     position: absolute;
     bottom: 20px;
     left: 20px;
     color: var(--secondary_color);
+}
+
+.todo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: relative; 
+}
+
+.todo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 45px; 
+    right: 0;
+    border-bottom: 1px solid var(--border_color); 
+}
+
+.todo_header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.todo_header p{
+    margin: 0;
+    padding: 0;
+}
+
+.todo_header input[type="checkbox"] {
+    margin-right: 10px;
+    appearance: none;
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 2px solid var(--text_color);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    background: none;
+}
+
+.todo_header input[type="checkbox"]:checked::before {
+    content: '';
+    display: block;
+    width: 0.7rem;
+    height: 0.7rem;
+    background-color: var(--text_color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.todo_header input#newTodoInput {
+    border: none;
+    background: none;
+    font-size: 1rem; /* Match the font size of the todo text */
+    color: var(--text_color);
+    width: 100%;
+    font-style: italic; /* Match the font family */
+    margin: 0; /* Match the margin of the todo text */
+    padding: 0; /* Match the padding of the todo text */
+    line-height: 1.5; /* Match the line height of the todo text */
+}
+
+.todo_header input#newTodoInput:focus {
+    outline: none;
+}
+
+.todo_icons {
+    display: none; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 50px;
+}
+
+.todo:hover .todo_icons {
+    display: flex;
+}
+
+.todo_icons svg:nth-child(-n+3) path {
+    stroke: var(--warning_color); /* Change the color of the first three icons */
+}
+
+.todo_icons svg:nth-child(3) path {
+    fill: var(--warning_color); /* Change the color of the delete icon */
 }
 
 /* Custom scrollbar styles */
@@ -347,7 +469,51 @@ body.popup-open .blur-background {
     background: var(--secondary_color); /* Color of the scrollbar thumb on hover */
 }
 
+/* ...existing code... */
 
+.delete_popup {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; /* Center the text horizontally */
+    text-align: center; /* Center the text */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--foreground_color);
+    border-radius: 15px;
+    padding: 20px;
+    z-index: 1001; /* Ensure popup is above the blurred background */
+}
+
+.delete_popup_buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    gap: 20px; /* Add margin between the buttons */
+}
+
+.delete_popup_button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--primary_color);
+    color: var(--text_color);
+}
+
+.delete_popup_button:hover {
+    background-color: var(--secondary_color);
+}
+
+.delete_popup_button.warning {
+    background-color: var(--warning_color);
+}
+
+.delete_popup_button.warning:hover {
+    background-color: var(--warning_color); /* Ensure the background color remains the same on hover */
+    opacity: 0.8; /* Add opacity to indicate hover effect */
+}
 
 @media screen and (max-width: 600px){
     
