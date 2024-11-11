@@ -45,7 +45,7 @@ function loadTodos(listId) {
 
 function backendAddNewList(id, text) {
     // Task 5: Make BackendConnection to the backend to add a new todo
-
+    
 }
 
 function backendAddNewTodo(id, text) {
@@ -61,14 +61,16 @@ function toggleTodoStatus(id, checked) {
 
 function changeDateOfToDo(todoId, date) {
     //Task 8: Make BackendConection to the backend to change the date of the todo
+    
 }
 
 function backendDeleteTodo(id) {
     // Task 9: Make BackendConnection to the backend to delete the todo
-    
+
 }
 
 function backendDeleteList(listId) {
     // Task 10: Make BackendConnection to the backend to delete the list
+    // this function should also delete all the todos of the list
 
 }

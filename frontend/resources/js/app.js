@@ -1,4 +1,4 @@
-// Task 1: Add the date add funtionality
+// Task 1: 
 //Task 2 add menu funktionality an the load the todos
 //Task 3: responsivness of app
 
@@ -103,7 +103,7 @@ function printToDo(id, checked, text, date) {
             </div>
         </div>
         <div class="todo_icons">
-            <svg class="todo_icon_date" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="todo_icon_date" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="changeDate(${id})">
                 <path d="M0 14.95C0 16.395 1.105 17.5 2.55 17.5H14.45C15.895 17.5 17 16.395 17 14.95V8.15H0V14.95ZM14.45 2.2H12.75V1.35C12.75 0.84 12.41 0.5 11.9 0.5C11.39 0.5 11.05 0.84 11.05 1.35V2.2H5.95V1.35C5.95 0.84 5.61 0.5 5.1 0.5C4.59 0.5 4.25 0.84 4.25 1.35V2.2H2.55C1.105 2.2 0 3.305 0 4.75V6.45H17V4.75C17 3.305 15.895 2.2 14.45 2.2Z" fill="#98C1D9"/>
             </svg>
             <svg class="delete_icon" width="1rem" height="1rem" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteTodo(${id})">
@@ -123,6 +123,61 @@ function deleteTodo(id) {
         backendDeleteTodo(id);
     }
 }
+
+let currentTodoId = null;
+
+function changeDate(id) {
+    currentTodoId = id;
+    const todoElement = document.getElementById(id);
+    const existingDate = todoElement.querySelector('.todo_date_text') ? todoElement.querySelector('.todo_date_text').innerText : '';
+    document.getElementById('date_input').value = existingDate;
+    openPopup('date_change_popup');
+}
+
+function closeDateChangePopup() {
+    closePopup('date_change_popup');
+}
+
+function isValidDate(date) {
+    const regex = /^\d{2}\.\d{2}\.\d{2}$/;
+    return regex.test(date);
+}
+
+function printDate(id, date) {
+    const todoElement = document.getElementById(id);
+    const dateElement = todoElement.querySelector('.todo_date_text');
+    if (dateElement) {
+        dateElement.innerText = date;
+    } else {
+        const newDateElement = document.createElement('p');
+        newDateElement.className = 'todo_date_text';
+        newDateElement.innerText = date;
+        todoElement.querySelector('.todo_header div').appendChild(newDateElement);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.addList').addEventListener('click', showNewListInput);
+    document.querySelector('.todo_add').addEventListener('click', showNewTodoInput);
+
+    document.getElementById('confirm_date_button').onclick = function() {
+        const date = document.getElementById('date_input').value;
+        if (date && isValidDate(date)) {
+            changeDateOfToDo(currentTodoId, date);
+            printDate(currentTodoId, date);
+            closeDateChangePopup();
+        } else {
+            alert('Invalid date format. Please enter the date in dd.mm.yy format.');
+        }
+    };
+
+    document.getElementById('date_input').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            document.getElementById('confirm_date_button').click();
+        }
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.addList').addEventListener('click', showNewListInput);

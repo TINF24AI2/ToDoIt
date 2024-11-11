@@ -76,17 +76,48 @@ hr {
     padding: 0;
 }
 
-.popup{
-    position: absolute;
+.popup {
+    position: fixed; /* Change to fixed */
     display: none;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center; /* Center the text horizontally */
+    text-align: center; /* Center the text */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--foreground_color);
     border-radius: 15px;
-    padding-top: 10px;
+    padding: 20px;
+    z-index: 1001; /* Ensure popup is above the blurred background */
+}
+
+.popup_buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    gap: 20px; /* Add margin between the buttons */
+}
+
+.popup_button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--primary_color);
+    color: var(--text_color);
+}
+
+.popup_button:hover {
+    background-color: var(--secondary_color);
+}
+
+.popup_button.warning {
+    background-color: var(--warning_color);
+}
+
+.popup_button.warning:hover {
+    background-color: var(--warning_color); /* Ensure the background color remains the same on hover */
+    opacity: 0.8; /* Add opacity to indicate hover effect */
 }
 
 .popup_close{
@@ -508,6 +539,46 @@ body.popup-open .blur-background {
 }
 
 .delete_popup_button.warning:hover {
+    background-color: var(--warning_color); /* Ensure the background color remains the same on hover */
+    opacity: 0.8; /* Add opacity to indicate hover effect */
+}
+
+.styled-input {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border-width: .1em;
+    border-color: var(--border_color);
+    border-style: solid;
+    background-color: transparent;
+    color: var(--text_color);
+    font-size: 1em;
+    font-weight: 300;
+    cursor: text;
+}
+
+.styled-input:focus {
+    outline: none;
+}
+
+.styled-input::placeholder {
+    color: var(--text_color);
+}
+
+.popup_button.save {
+    background-color: var(--primary_color);
+}
+
+.popup_button.save:hover {
+    background-color: var(--secondary_color);
+}
+
+.popup_button.cancel {
+    background-color: var(--warning_color);
+}
+
+.popup_button.cancel:hover {
     background-color: var(--warning_color); /* Ensure the background color remains the same on hover */
     opacity: 0.8; /* Add opacity to indicate hover effect */
 }

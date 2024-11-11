@@ -110,7 +110,7 @@
                     
 
 
-                    
+
                 </div>
 
                 <div class="todo_add">
@@ -148,6 +148,17 @@
             <div class="delete_popup_button" onclick="closeDeletePopup()">No</div>
         </div>
     </div>
+
+    <!-- Date Change Popup -->
+    <div class="popup" id="date_change_popup">
+        <div>Enter the new date (dd.mm.yy):</div>
+        <input type="text" id="date_input" class="styled-input" placeholder="dd.mm.yy">
+        <div class="popup_buttons">
+            <div class="popup_button save" id="confirm_date_button">Save</div>
+            <div class="popup_button cancel" onclick="closeDateChangePopup()">Cancel</div>
+        </div>
+    </div>
+
 </body>
 
 </html>
