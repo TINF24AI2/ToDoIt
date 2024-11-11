@@ -34,6 +34,8 @@ function loadLists() {
 function loadTodos(listId) {
     //Task 4: Make BackendConection to the backend to get the todos of a list refers to printTodo to print the todos
 
+    //if listId is 0 then print all the todos of today
+    //if listID is 00 then print all the todos of today
     //print the indiviual todos by calling printToDo(id, checked, text, date)
 
     //Simulate backend connection for testing musst be removed in the final version
