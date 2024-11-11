@@ -1,10 +1,13 @@
 // Task 1: Add the date add funtionality
 //Task 2 add menu funktionality an the load the todos
+//Task 3: responsivness of app
 
 function onLoad() {
     //checkSession();
     setUsername();
     loadThemePreference();
+
+    //Task 2: Load the lists and todos
     loadLists();
     loadTodos(); 
 }
@@ -19,6 +22,7 @@ function checkSession() {
 
 // Function to lout
 function logout() {
+    logoutBack();
     deleteCookie("session");
     window.location.href = 'index.html';
 }
@@ -185,6 +189,15 @@ function handleNewTodoKeyPress(event) {
             addNewTodo(todoText);
         }
     }
+}
+
+function addNewList(name) {
+    // Task 7: Add BackendConnection to the backend to add a new list
+    if (name) { //check if the name is not empty
+        const newTodoId = Date.now(); // Simulate a unique ID
+        printList(newTodoId, name);
+        backendAddNewList(newTodoId, name);
+    } 
 }
 
 function addNewTodo(text) {
