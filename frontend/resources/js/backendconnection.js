@@ -53,7 +53,7 @@ function backendAddNewTodo(id, text) {
     
 }
 
-function toggleTodoStatus(id, checked) {
+function toggleTodoStatusBackend(id, checked) {
     // Task 7: Make BackendConnection to the backend to update the todo status
 
 }
@@ -61,7 +61,7 @@ function toggleTodoStatus(id, checked) {
 
 function changeDateOfToDo(todoId, date) {
     //Task 8: Make BackendConection to the backend to change the date of the todo
-    
+
 }
 
 function backendDeleteTodo(id) {

@@ -1,4 +1,3 @@
-// Task 1: 
 //Task 2 add menu funktionality an the load the todos
 //Task 3: responsivness of app
 
@@ -99,7 +98,7 @@ function printToDo(id, checked, text, date) {
             <input type="checkbox" ${checked ? 'checked' : ''} onchange="toggleTodoStatus(${id}, this.checked)">
             <div>
                 <p>${text}</p>
-                ${date ? `<p class="todo_date_text">${date}</p>` : ''}
+                ${date ? `<p class="todo_date_text ${isDateInPast(date) && !checked ? 'past_due' : ''}">${date}</p>` : ''}
             </div>
         </div>
         <div class="todo_icons">
@@ -124,6 +123,17 @@ function deleteTodo(id) {
     }
 }
 
+function toggleTodoStatus(id, checked) {
+    toggleTodoStatusBackend(id, checked);
+    const todoElement = document.getElementById(id);
+    const dateElement = todoElement.querySelector('.todo_date_text');
+    if (checked) {
+        dateElement.classList.remove('past_due');
+    } else if (isDateInPast(dateElement.innerText)) {
+        dateElement.classList.add('past_due');
+    }
+}
+
 let currentTodoId = null;
 
 function changeDate(id) {
@@ -143,9 +153,18 @@ function isValidDate(date) {
     return regex.test(date);
 }
 
+function isDateInPast(date) {
+    const [day, month, year] = date.split('.').map(Number);
+    const todoDate = new Date(year + 2000, month - 1, day);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return todoDate < today;
+}
+
 function printDate(id, date) {
     const todoElement = document.getElementById(id);
     const dateElement = todoElement.querySelector('.todo_date_text');
+    const isChecked = todoElement.querySelector('input[type="checkbox"]').checked;
     if (dateElement) {
         dateElement.innerText = date;
     } else {
@@ -153,6 +172,11 @@ function printDate(id, date) {
         newDateElement.className = 'todo_date_text';
         newDateElement.innerText = date;
         todoElement.querySelector('.todo_header div').appendChild(newDateElement);
+    }
+    if (isDateInPast(date) && !isChecked) {
+        dateElement.classList.add('past_due');
+    } else {
+        dateElement.classList.remove('past_due');
     }
 }
 

@@ -383,6 +383,9 @@ body.popup-open .blur-background {
     background: var(--secondary_color); /* Color of the scrollbar thumb on hover */
 }
 
+.todo_date_text.past_due {
+    color: var(--warning_color);
+}
 
 .todo_add{
     position: absolute;
