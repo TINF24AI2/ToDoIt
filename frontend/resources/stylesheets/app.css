@@ -214,10 +214,6 @@ body.popup-open .blur-background {
     justify-content: space-around;
 }
 
-.menu_scheduled_buttons_div :hover{
-    background-color: var(--foreground_color_hover);
-}
-
 .menu_scheduled_buttons{
     background-color: var(--foreground_color);
     display: flex;
@@ -232,6 +228,13 @@ body.popup-open .blur-background {
     cursor: pointer;
 }
 
+.menu_scheduled_buttons.active_list {
+    background-color: var(--primary_color);
+}
+
+.menu_scheduled_buttons.active_list:hover {
+    background-color: var(--primary_color);
+}
 
 .menu_scheduled_buttons h3{
     margin: 0;
@@ -585,6 +588,43 @@ body.popup-open .blur-background {
     background-color: var(--warning_color); /* Ensure the background color remains the same on hover */
     opacity: 0.8; /* Add opacity to indicate hover effect */
 }
+
+.welcome-text {
+    text-align: center;
+    font-family: var(--accent_font_family);
+    color: var(--border_color);
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+.active_list {
+    background-color: var(--primaryprimary_color_hover);
+}
+
+/* ...existing code... */
+
+.menu_scheduled_buttons.active_list {
+    background-color: var(--primary_color);
+}
+
+
+.menu_scheduled_buttons.active_list:hover {
+    background-color: var(--primary_color);
+}
+
+.menu_list.active_list {
+    background-color: var(--primary_color);
+}
+
+.menu_list:hover, .menu_scheduled_buttons:hover {
+    background-color: var(--foreground_color_hover);
+}
+
+.menu_list.active_list:hover, .menu_scheduled_buttons.active_list:hover {
+    background-color: var(--primary_color);
+}
+
+/* ...existing code... */
 
 @media screen and (max-width: 600px){
     

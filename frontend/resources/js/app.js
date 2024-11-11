@@ -5,10 +5,8 @@ function onLoad() {
     //checkSession();
     setUsername();
     loadThemePreference();
-
-    //Task 2: Load the lists and todos
     loadLists();
-    loadTodos(); 
+    openList(0, "");
 }
 
 
@@ -52,7 +50,7 @@ function closePopup(id) {
 
 function printList(id, name) {
     document.getElementById('menu_list_menu').innerHTML += `
-    <div id="${id}" class="menu_list">
+    <div id="${id}" class="menu_list" onclick="openList(${id},'${name}')">
         <div class="menu_list_left">
             <svg width="2rem" height="2rem" viewBox="-1 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg">
                 <path d="M16.417 9.583A7.917 7.917 0 1 1 8.5 1.666a7.917 7.917 0 0 1 7.917 7.917zM5.164 6.17a.792.792 0 0 0-.792-.792H4.37a.792.792 0 0 0 0 1.583h.002a.792.792 0 0 0 .792-.791zm0 3.475a.792.792 0 0 0-.792-.791H4.37a.792.792 0 0 0 0 1.583h.002a.792.792 0 0 0 .792-.792zm0 3.476a.792.792 0 0 0-.792-.791H4.37a.792.792 0 1 0 0 1.583h.002a.792.792 0 0 0 .792-.792zM13.45 6.17a.792.792 0 0 0-.792-.791H6.922a.792.792 0 1 0 0 1.583h5.736a.792.792 0 0 0 .792-.791zm0 3.476a.792.792 0 0 0-.792-.791H6.922a.792.792 0 1 0 0 1.583h5.736a.792.792 0 0 0 .792-.792z"/>
@@ -73,6 +71,7 @@ function deleteList(id) {
         listElement.remove();
         backendDeleteList(id);
     }
+    openList(0, "");
 }
 
 function showDeletePopup(id) {
@@ -83,6 +82,7 @@ function showDeletePopup(id) {
         deleteList(id);
         closeDeletePopup();
     };
+    
 }
 
 function closeDeletePopup() {
@@ -271,11 +271,11 @@ function handleNewTodoKeyPress(event) {
 }
 
 function addNewList(name) {
-    // Task 7: Add BackendConnection to the backend to add a new list
     if (name) { //check if the name is not empty
         const newTodoId = Date.now(); // Simulate a unique ID
         printList(newTodoId, name);
         backendAddNewList(newTodoId, name);
+        openList(newTodoId, name);
     } 
 }
 
@@ -284,5 +284,51 @@ function addNewTodo(text) {
     const checked = false; // Ensure the new todo is added with the correct checked status
     printToDo(newTodoId, checked, text);
     backendAddNewTodo(newTodoId, text);
+}
+
+function openList(listId, name) {
+    const todoDiv = document.getElementById('todo_div');
+    const todosDiv = document.getElementById('todos_div');
+    const todoDivHeader = document.getElementById('todo_div_header');
+    const todoAddButton = document.querySelector('.todo_add');
+    
+    // Remove active class from all lists
+    document.querySelectorAll('.menu_list, .menu_scheduled_buttons').forEach(list => {
+        list.classList.remove('active_list');
+    });
+
+    // Add active class to the selected list
+    if (listId === 1) {
+        name = 'Today';
+        const todayButton = document.querySelector('.menu_scheduled_buttons[onclick="openList(1, \'Today\')"]');
+        if (todayButton) {
+            todayButton.classList.add('active_list');
+        }
+    } else if (listId === 2) {
+        name = 'This Week';
+        const thisWeekButton = document.querySelector('.menu_scheduled_buttons[onclick="openList(2, \'This Week\')"]');
+        if (thisWeekButton) {
+            thisWeekButton.classList.add('active_list');
+        }
+    } else {
+        const selectedList = document.getElementById(listId);
+        if (selectedList) {
+            selectedList.classList.add('active_list');
+        }
+    }
+
+    if (listId === 0) {
+        todoDiv.style.display = 'block';
+        todosDiv.innerHTML = '<p class="welcome-text">Welcome to ToDoIt!</p>';
+        todoDivHeader.innerHTML = '';
+        todoAddButton.style.display = 'none';
+        return;
+    }
+    
+    todoDiv.style.display = 'block';
+    todosDiv.innerHTML = '';
+    todoDivHeader.innerHTML = name;
+    todoAddButton.style.display = 'block';
+    loadTodos(listId);
 }
 
