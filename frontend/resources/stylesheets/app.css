@@ -279,6 +279,10 @@ body.popup-open .blur-background {
     align-items: center;
 }
 
+.menu_list_left svg path {
+    fill: var(--text_color);
+}
+
 .menu_list_left input#newListInput {
     border: none;
     background: none;
