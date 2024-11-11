@@ -303,17 +303,20 @@ function openList(listId, name) {
         if (todayButton) {
             todayButton.classList.add('active_list');
         }
+        todoAddButton.classList.add('hide-todo-add'); // Hide add todo button
     } else if (listId === 2) {
         name = 'This Week';
         const thisWeekButton = document.querySelector('.menu_scheduled_buttons[onclick="openList(2, \'This Week\')"]');
         if (thisWeekButton) {
             thisWeekButton.classList.add('active_list');
         }
+        todoAddButton.classList.add('hide-todo-add'); // Hide add todo button
     } else {
         const selectedList = document.getElementById(listId);
         if (selectedList) {
             selectedList.classList.add('active_list');
         }
+        todoAddButton.classList.remove('hide-todo-add'); // Show add todo button
     }
 
     if (listId === 0) {
@@ -327,7 +330,11 @@ function openList(listId, name) {
     todoDiv.style.display = 'block';
     todosDiv.innerHTML = '';
     todoDivHeader.innerHTML = name;
-    todoAddButton.style.display = 'block';
+    if (listId === 1 || listId === 2) {
+        todoAddButton.style.display = 'none'; // Hide add todo button
+    } else {
+        todoAddButton.style.display = 'block'; // Show add todo button
+    }
     loadTodos(listId);
 }
 

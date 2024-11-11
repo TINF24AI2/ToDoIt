@@ -625,6 +625,10 @@ body.popup-open .blur-background {
 
 /* ...existing code... */
 
+.hide-todo-add {
+    display: none;
+}
+
 @media screen and (max-width: 600px){
     
     .header_search{
