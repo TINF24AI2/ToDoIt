@@ -1,5 +1,4 @@
-//Task 2 add menu funktionality an the load the todos
-//Task 3: responsivness of app
+//Task: responsivness of app
 
 function onLoad() {
     //checkSession();
