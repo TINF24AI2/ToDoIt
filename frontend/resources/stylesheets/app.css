@@ -323,11 +323,6 @@ body.popup-open .blur-background {
     fill: var(--text_color);
 }
 
-.menu_list_left svg {
-    width: 2rem;
-    height: 2rem;
-}
-
 .addList{
     position: absolute;
     bottom: 20px;
