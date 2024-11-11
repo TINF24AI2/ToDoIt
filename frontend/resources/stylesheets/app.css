@@ -442,13 +442,10 @@ body.popup-open .blur-background {
     display: flex;
 }
 
-.todo_icons svg:nth-child(-n+3) path {
+.delete_icon path {
     stroke: var(--warning_color); /* Change the color of the first three icons */
 }
 
-.todo_icons svg:nth-child(3) path {
-    fill: var(--warning_color); /* Change the color of the delete icon */
-}
 
 /* Custom scrollbar styles */
 .menu_list_menu::-webkit-scrollbar {
