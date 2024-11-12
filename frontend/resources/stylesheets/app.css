@@ -703,4 +703,18 @@ body.popup-open .blur-background {
         color: var(--secondary_color);
     }
     
+    .save-button {
+        display: block;
+        padding: 4px;
+        background-color: var(--primary_color);
+        color: var(--text_color);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+    }
+    .save-button:hover {
+        background-color: var(--secondary_color);
+    }
+    
 }
