@@ -266,6 +266,7 @@ function showNewTodoInput() {
         saveButton.className = 'save-button';
         saveButton.innerText = 'Save';
         saveButton.onclick = function() {
+            console.log('Save button clicked');
             const input = document.getElementById('newTodoInput');
             const todoText = input.value.trim();
             input.parentElement.parentElement.parentElement.remove(); // Remove input field

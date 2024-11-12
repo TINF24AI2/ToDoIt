@@ -640,12 +640,6 @@ body.popup-open .blur-background {
     font-size: medium;
 }
 
-@media (pointer: coarse) {
-    .body {
-        display: none;
-    }
-}
-
 @media screen and (max-width: 600px){
 
     #todo_div_header {
