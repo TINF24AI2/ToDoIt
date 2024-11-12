@@ -635,11 +635,17 @@ body.popup-open .blur-background {
     display: none;
     color: var(--secondary_color);
     cursor: pointer;
-    margin-bottom: 10px;
+    margin: 10px;
+    margin-left: 0;
+    font-size: medium;
 }
 
 @media screen and (max-width: 600px){
 
+    #todo_div_header {
+        margin-left: 10px;
+    }
+    
     .menu{
         width: 100vw;
         border: none;
@@ -686,12 +692,15 @@ body.popup-open .blur-background {
         display: block; /* Show back button on phone views */
     }
 
-    .outerdiv {
-        padding: 20px;
-    }
-
     .menu_list.active_list, .menu_scheduled_buttons.active_list {
         background-color: var(--foreground_color); /* Change to foreground color */
+    }
+
+    .todo_add {
+        position: absolute;
+        top: 49px;
+        left: 75vw;
+        color: var(--secondary_color);
     }
     
 }

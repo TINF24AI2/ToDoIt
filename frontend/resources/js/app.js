@@ -346,7 +346,7 @@ function openList(listId, name) {
     if (window.innerWidth <= 600) {
         todoDiv.classList.add('show');
         backButton.className = 'back-button';
-        backButton.innerText = 'Back';
+        backButton.innerText = '< Back';
         backButton.onclick = function() {
             todoDiv.classList.remove('show');
             todoDiv.style.display = 'none'; // Hide todos div
