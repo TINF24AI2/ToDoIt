@@ -629,11 +629,16 @@ body.popup-open .blur-background {
     display: none;
 }
 
+/* ...existing code... */
+
+.back-button {
+    display: none;
+    color: var(--secondary_color);
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
 @media screen and (max-width: 600px){
-    
-    .header_search{
-        display: none;
-    }
 
     .menu{
         width: 100vw;
@@ -663,6 +668,30 @@ body.popup-open .blur-background {
         right: 20px;
         top: 213px;
         height: 30px;
+    }
+
+    .todo_div{
+        position: absolute;
+        background-color: var(--background_color);
+        width: 100vw;
+        display: none; /* Hide todos div initially */
+        padding: 0;
+    }
+
+    .todo_div.show {
+        display: block; /* Show todos div when needed */
+    }
+
+    .back-button {
+        display: block; /* Show back button on phone views */
+    }
+
+    .outerdiv {
+        padding: 20px;
+    }
+
+    .menu_list.active_list, .menu_scheduled_buttons.active_list {
+        background-color: var(--foreground_color); /* Change to foreground color */
     }
     
 }

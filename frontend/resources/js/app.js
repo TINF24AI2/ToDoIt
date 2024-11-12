@@ -5,7 +5,11 @@ function onLoad() {
     setUsername();
     loadThemePreference();
     loadLists();
-    openList(0, "");
+    if (window.innerWidth > 600) {
+        openList(0, "");
+    } else {
+        document.getElementById('todo_div').style.display = 'none';
+    }
 }
 
 
@@ -290,7 +294,8 @@ function openList(listId, name) {
     const todosDiv = document.getElementById('todos_div');
     const todoDivHeader = document.getElementById('todo_div_header');
     const todoAddButton = document.querySelector('.todo_add');
-    
+    const backButton = document.createElement('div');
+
     // Remove active class from all lists
     document.querySelectorAll('.menu_list, .menu_scheduled_buttons').forEach(list => {
         list.classList.remove('active_list');
@@ -321,12 +326,12 @@ function openList(listId, name) {
 
     if (listId === 0) {
         todoDiv.style.display = 'block';
-        todosDiv.innerHTML = '<p class="welcome-text">Welcome to ToDoIt!</p>';
+        todosDiv.innerHTML = window.innerWidth > 600 ? '<p class="welcome-text">Welcome to ToDoIt!</p>' : '';
         todoDivHeader.innerHTML = '';
         todoAddButton.style.display = 'none';
         return;
     }
-    
+
     todoDiv.style.display = 'block';
     todosDiv.innerHTML = '';
     todoDivHeader.innerHTML = name;
@@ -336,5 +341,18 @@ function openList(listId, name) {
         todoAddButton.style.display = 'block'; // Show add todo button
     }
     loadTodos(listId);
+
+    // Show todos div and add back button for phone views
+    if (window.innerWidth <= 600) {
+        todoDiv.classList.add('show');
+        backButton.className = 'back-button';
+        backButton.innerText = 'Back';
+        backButton.onclick = function() {
+            todoDiv.classList.remove('show');
+            todoDiv.style.display = 'none'; // Hide todos div
+            document.querySelector('.menu').style.display = 'block'; // Show menu
+        };
+        todoDivHeader.prepend(backButton);
+    }
 }
 
