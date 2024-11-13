@@ -1,10 +1,5 @@
 // This file will be used to make the backend connection and get the data from the backend
 // All the IDs and are defined in this file in the add functions and will be used in the frontend to get the data from the backend
-// Import the bcrypt library for password hashing
-let bcrypt;
-(async () => {
-    bcrypt = await import('bcryptjs');
-})();
 
 const supabase_ = window.supabase;
 
@@ -33,8 +28,8 @@ async function loginBack(username, password) {
     }
 
     // Compare the provided password with the stored encrypted password
-    const isPasswordValid = await bcrypt.compare(password, data.encrypted_password);
-    if (!isPasswordValid) {
+    const hashedPassword = SHA256(password);
+    if (hashedPassword !== data.encrypted_password) {
         return 1; // wrong password
     }
 
@@ -51,7 +46,7 @@ async function signupBack(username, password) {
     //Task 2: Make BackendConection to the backend to register the user and refers to login function to login the user
     try {
         // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = SHA256(password);
 
         // Insert the new user into the users table
         const { data, error } = await supabase
