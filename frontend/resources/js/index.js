@@ -40,7 +40,7 @@ function login() {
         return;
     }
 
-    var loginAnswer = backend.loginBack(username, password);
+    var loginAnswer = loginBack(username, password);
     console.log("loginBack returned:", loginAnswer);
     if(loginAnswer == 0){
         window.location.href = 'app.html';
@@ -103,7 +103,7 @@ function signup() {
     }
     
 
-    var signupAnswer = backend.signupBack(username, password);
+    var signupAnswer = signupBack(username, password);
     if(signupAnswer == 0){
         window.location.href = 'app.html';
     }
