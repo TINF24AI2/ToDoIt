@@ -1,7 +1,7 @@
 // This file will be used to make the backend connection and get the data from the backend
 // All the IDs and are defined in this file in the add functions and will be used in the frontend to get the data from the backend
 // Import the bcrypt library for password hashing
-import bcrypt from 'bcryptjs';
+const bcrypt = await import('bcryptjs');
 
 const supabase_ = window.supabase;
 
