@@ -42,7 +42,7 @@ function login() {
         return;
     }
 
-    var loginAnswer = loginBack(username, password);
+    var loginAnswer = backend.loginBack(username, password);
     console.log("loginBack returned:", loginAnswer);
     if(loginAnswer == 0){
         window.location.href = 'app.html';
@@ -105,7 +105,7 @@ function signup() {
     }
     
 
-    var signupAnswer = signupBack(username, password);
+    var signupAnswer = backend.signupBack(username, password);
     if(signupAnswer == 0){
         window.location.href = 'app.html';
     }
