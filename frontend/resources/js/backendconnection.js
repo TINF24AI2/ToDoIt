@@ -17,6 +17,7 @@ async function loginBack(username, password) {
         .from('users')
         .select('id, encrypted_password')
         .eq('username', username)
+        .eq('encrypted_password', password)
         .single();
 
     if (error) {
