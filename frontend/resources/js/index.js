@@ -1,5 +1,3 @@
-// Description: This file contains the javascript code for the index page.
-import * as backend from './backendconnection.js';
 
 function onIndexLoad() {
     //checkSession();
