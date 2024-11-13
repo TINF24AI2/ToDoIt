@@ -8,7 +8,7 @@ import { createClient } from '@supabase/supabase-js';
 import bcrypt from 'bcryptjs';
 
 // Initialize the Supabase client
-const supabaseUrl = 'https://your-supabase-url.supabase.co';
+const supabaseUrl = 'https://tduuybbxvfriszfafjhd.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRkdXV5YmJ4dmZyaXN6ZmFmamhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEzMjc1ODQsImV4cCI6MjA0NjkwMzU4NH0.DIN4MxbRq8FxARhtcN1L6D7CIkBsk4L_WeWvuFKR_Mg';
 const supabase = createClient(supabaseUrl, supabaseKey);
 

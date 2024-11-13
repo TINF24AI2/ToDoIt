@@ -1,6 +1,6 @@
 // Description: This file contains the javascript code for the index page.
 function onIndexLoad() {
-    checkSession();
+    //checkSession();
     loadThemePreference();
 }
 // Check if the user is already logged in
