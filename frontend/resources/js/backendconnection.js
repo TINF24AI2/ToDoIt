@@ -16,7 +16,6 @@ async function loginBack(username, password) {
         // Set the headers
         const headers = {
             'Accept': 'application/json',
-            'Authorization': 'Bearer o7XgYQ1IT93kDrjQCiPQmUdz6CJvO0Ef9ienJrgZcgKNbdXJw+4+M/bXhWfTS+piIAcp16jDK8EHN/mNZ0XpEw=='
         };
     // Query the users table to find the user by username
     const { data, error } = await supabase
@@ -35,7 +34,7 @@ async function loginBack(username, password) {
         }
 
         // Compare the provided password with the stored encrypted password
-        const hashedPassword = SHA256(password);
+        const hashedPassword = SHA256(password).toString();
         console.log('Provided hashed password:', hashedPassword); 
         console.log('Stored encrypted password:', data.encrypted_password); 
 
@@ -44,8 +43,11 @@ async function loginBack(username, password) {
             return 1; // wrong password
         }
 
-        // Set session and username cookies
-        document.cookie = `session=${data.id}; path=/`;
+        // Generate a JWT token for current user
+        const jwtToken = generateJWTToken(data.id); 
+
+        // Set the session and user cookies
+        document.cookie = `session=${jwtToken}; path=/`;
         document.cookie = `username=${username}; path=/`;
         document.cookie = `user_id=${data.id}; path=/`;
 
@@ -62,7 +64,7 @@ async function signupBack(username, password) {
     //Task 2: Make BackendConection to the backend to register the user and refers to login function to login the user
     try {
         // Hash the password
-        const hashedPassword = SHA256(password);
+        const hashedPassword = SHA256(password).toString();
 
         // Insert the new user into the users table
         const { data, error } = await supabase
@@ -89,6 +91,7 @@ function logoutBack() {
     // Clear the session and username cookies
     document.cookie = 'session=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie = 'user_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
     // Optionally, you can also handle any other cleanup tasks here
     console.log('User logged out successfully');
