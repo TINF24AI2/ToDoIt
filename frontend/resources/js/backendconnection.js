@@ -16,7 +16,7 @@ async function loginBack(username, password) {
     // Query the users table to find the user by username
     const { data, error } = await supabase
             .from('users')
-            .select('id, encrypted_password')
+            .select('id, encrypted_password', { headers: { 'Accept': 'application/json' } })
             .eq('username', username)
             .single(); // <== deleted: .eq('encrypted_password', password)
 
