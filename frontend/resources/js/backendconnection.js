@@ -15,7 +15,8 @@ async function loginBack(username, password) {
     try{
         // Set the headers
         const headers = {
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'Authorization': 'Bearer o7XgYQ1IT93kDrjQCiPQmUdz6CJvO0Ef9ienJrgZcgKNbdXJw+4+M/bXhWfTS+piIAcp16jDK8EHN/mNZ0XpEw=='
         };
     // Query the users table to find the user by username
     const { data, error } = await supabase
