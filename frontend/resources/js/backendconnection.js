@@ -13,10 +13,14 @@ console.log({supabase})
 async function loginBack(username, password) {
     //Task 1: Make BackendConnector to the backend to login the user and set the session cookie and username cookie
     try{
+        // Set the headers
+        const headers = {
+            'Accept': 'application/json'
+        };
     // Query the users table to find the user by username
     const { data, error } = await supabase
             .from('users')
-            .select('id, encrypted_password', { headers: { 'Accept': 'application/json' } })
+            .select('id, encrypted_password')
             .eq('username', username)
             .single(); // <== deleted: .eq('encrypted_password', password)
 
