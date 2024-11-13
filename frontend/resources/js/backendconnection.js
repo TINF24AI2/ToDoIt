@@ -1,16 +1,13 @@
 // This file will be used to make the backend connection and get the data from the backend
 // All the IDs and are defined in this file in the add functions and will be used in the frontend to get the data from the backend
 
-// Import the Supabase client library
-import { createClient } from '@supabase/supabase-js';
+const supabase_ = window.supabase;
 
-// Import the bcrypt library for password hashing
-import bcrypt from 'bcryptjs';
-
-// Initialize the Supabase client
 const supabaseUrl = 'https://tduuybbxvfriszfafjhd.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRkdXV5YmJ4dmZyaXN6ZmFmamhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEzMjc1ODQsImV4cCI6MjA0NjkwMzU4NH0.DIN4MxbRq8FxARhtcN1L6D7CIkBsk4L_WeWvuFKR_Mg';
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabase = supabase_.createClient(supabaseUrl, supabaseKey);
+
+console.log({supabase})
 
 // This function will be used to login the user
 async function loginBack(username, password) {
