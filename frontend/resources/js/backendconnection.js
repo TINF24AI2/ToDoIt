@@ -12,25 +12,29 @@ console.log({supabase})
 // This function will be used to login the user
 async function loginBack(username, password) {
     //Task 1: Make BackendConnector to the backend to login the user and set the session cookie and username cookie
-    try{
     // Query the users table to find the user by username
     const { data, error } = await supabase
-            .from('users')
-            .select('id, encrypted_password')
-            .eq('username', username)
-            .single(); // <== deleted: .eq('encrypted_password', password)
+        .from('users')
+        .select('id, encrypted_password')
+        .eq('username', username)
+        .single();
 
-        if (error) {
-            if (error.message === 'User not found') {
-                console.error('Login error: User not found'); 
-                return 2; // wrong username
-            }
-            console.error('Login error:', error.message);
-            return 3; // other errors
+    if (error) {
+        if (error.message === 'User not found') {
+            return 2; // wrong username
         }
+        console.error('Login error:', error.message);
+        return 3; // other errors
+    }
+
+    // Compare the provided password with the stored encrypted password
+    const hashedPassword = SHA256(password);
+    if (hashedPassword !== data.encrypted_password) {
+        return 1; // wrong password
+    }
 
         // Compare the provided password with the stored encrypted password
-        // const hashedPassword = SHA256(password).toString();
+        // const hashedPassword = SHA256(password);
         // console.log('Provided hashed password:', hashedPassword); 
         // console.log('Stored encrypted password:', data.encrypted_password); 
 
@@ -50,11 +54,7 @@ async function loginBack(username, password) {
 
         console.log('Login successful'); 
         return 0; // success
-    } catch (err) {
-        console.error('Login error:', err.message); 
-        return 3; // other errors
     }
-}
 
 // This function will be used to register the user 
 async function signupBack(username, password) {
