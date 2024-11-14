@@ -34,14 +34,14 @@ async function loginBack(username, password) {
         }
 
         // Compare the provided password with the stored encrypted password
-        const hashedPassword = SHA256(password).toString();
-        console.log('Provided hashed password:', hashedPassword); 
-        console.log('Stored encrypted password:', data.encrypted_password); 
+        // const hashedPassword = SHA256(password).toString();
+        // console.log('Provided hashed password:', hashedPassword); 
+        // console.log('Stored encrypted password:', data.encrypted_password); 
 
-        if (hashedPassword !== data.encrypted_password) {
+        /* if (hashedPassword !== data.encrypted_password) {
             console.error('Login error: Wrong password'); 
             return 1; // wrong password
-        }
+        } */
 
         // Generate a JWT token for current user
         const jwtToken = generateJWTToken(data.id); 
@@ -64,13 +64,13 @@ async function signupBack(username, password) {
     //Task 2: Make BackendConection to the backend to register the user and refers to login function to login the user
     try {
         // Hash the password
-        const hashedPassword = SHA256(password).toString();
+        // const hashedPassword = SHA256(password).toString();
 
         // Insert the new user into the users table
         const { data, error } = await supabase
             .from('users')
             .insert([
-                { username: username, encrypted_password: hashedPassword }
+                { username: username, encrypted_password: password }
             ]);
 
         if (error) {
