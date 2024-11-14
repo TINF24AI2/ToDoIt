@@ -13,10 +13,6 @@ console.log({supabase})
 async function loginBack(username, password) {
     //Task 1: Make BackendConnector to the backend to login the user and set the session cookie and username cookie
     try{
-        // Set the headers
-        const headers = {
-            'Accept': 'application/json',
-        };
     // Query the users table to find the user by username
     const { data, error } = await supabase
             .from('users')
@@ -44,10 +40,11 @@ async function loginBack(username, password) {
         } */
 
         // Generate a JWT token for current user
-        const jwtToken = generateJWTToken(data.id); 
+        // const jwtToken = generateJWTToken(data.id); 
 
         // Set the session and user cookies
-        document.cookie = `session=${jwtToken}; path=/`;
+        // document.cookie = `session=${jwtToken}; path=/`;
+        document.cookie = `session=${data.id}; path=/`;
         document.cookie = `username=${username}; path=/`;
         document.cookie = `user_id=${data.id}; path=/`;
 
