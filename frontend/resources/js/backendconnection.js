@@ -15,8 +15,9 @@ async function loginBack(username, password) {
     // Query the users table to find the user by username
     const { data, error } = await supabase
         .from('users')
-        .select('id, encrypted_password')
+        .select('id', 'encrypted_password')
         .eq('username', username)
+        .eq('encrypted_password', password)
         .single();
 
     if (error) {
@@ -28,10 +29,10 @@ async function loginBack(username, password) {
     }
 
     // Compare the provided password with the stored encrypted password
-    const hashedPassword = SHA256(password);
-    if (hashedPassword !== data.encrypted_password) {
+    // const hashedPassword = SHA256(password);
+    /* if (hashedPassword !== data.encrypted_password) {
         return 1; // wrong password
-    }
+    } */
 
         // Compare the provided password with the stored encrypted password
         // const hashedPassword = SHA256(password);
