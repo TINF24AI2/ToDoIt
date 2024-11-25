@@ -1,0 +1,236 @@
+body {
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: top center; 
+    background-repeat: no-repeat; 
+}
+
+.outerdiv{
+    min-height: 100vh;
+}
+
+header{ 
+    background-color: transparent;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
+.header_titel{
+    font-family: var(--accent_font_family);
+    color: var(--primary_color);
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+.header_titel_2{
+    font-family: var(--accent_font_family);
+    color: var(--secondary_color);
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+}
+
+.header_img{
+    width: 3em;
+    height: 3em;
+    margin-right: 10px;
+}
+
+.header_theme_toggler{
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.header_theme_toggler svg path {
+    fill: var(--text_color);
+}
+
+.form_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background-color: var(--foreground_color);
+    color: var(--text_color);
+    padding: 45px;
+    width: 600px;
+    border-radius: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 350;
+}
+
+.form_div h2{
+    font-family: var(--accent_font_family);
+    font-size: 3em;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+.form_div h3{
+    font-weight: 350;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.form_div form{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    width: 100%;
+}
+
+.form_div input[type="text"], input[type="password"]{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    border-width: .1em;
+    border-color: var(--boder_color);
+    border-style: solid;
+    background-color: transparent;
+    color: var(--text_color);
+    font-size: 1em;
+    font-weight: 300;
+    cursor: text;
+}
+
+:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: var(--text_color);
+}
+
+.form_div input[type="submit"]{
+    margin-top: 10px;
+    padding: 25px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--primary_color);
+    color: var(--text_color);
+    font-size: 1em;
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.form_div input[type="submit"]:hover{
+    background-color: var(--primary_color_hover);
+}
+
+
+.form_checkbox{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.form_div input[type="checkbox"]{
+    cursor: pointer;
+    background-color: var(--foreground_color);
+    border: 1.5px solid var(--text_color);
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin-right: 10px;
+}
+
+.form_div input[type="checkbox"]:checked {
+    background-color: var(--foreground_color);
+    position: relative;
+}
+
+.form_div input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--text_color);
+    border: 2px solid var(--foreground_color);
+    border-radius: 3px;
+    transform: translate(-50%, -50%);
+}
+
+footer{
+    background-color: var(--background_color);
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: var(--text_color);
+    font-weight: 300;
+    font-size: 1em;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+footer a{
+    color: var(--text_color);
+}
+
+.footer_github_link{
+    margin-right: 40px;
+}
+
+@media screen and (max-width: 600px){
+    
+    
+    body {
+        background-image: none;
+        background-color: var(--foreground_color);
+    }
+    
+    .outerdiv{
+        min-height: 90vh;
+    }
+
+    .form_div{
+        border-radius: 0px;
+        padding: 0px;
+        margin-top: 10px;
+        width: 100vw;
+    }
+
+    .form_div input{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .form_div label{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    footer{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer_github_link{
+        margin-right: 0px;
+    }
+    
+    .form_checkbox{
+        font-size: small;
+    }
+}
