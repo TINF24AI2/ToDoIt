@@ -1,10 +1,5 @@
-
-## Backend built with Supabase
-
-### Generel References
-
+### Supabase References
 https://supabase.com/
-
 https://supabase.com/docs
 
 ### API-References
